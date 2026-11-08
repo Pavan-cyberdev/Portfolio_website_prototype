@@ -2,5 +2,7 @@
   "name": "Pavankumar S - Portfolio",
   "description": "Personal portfolio of Pavankumar S, 1st-year B.Tech student in IoT & Cybersecurity, featuring Sentry X zero-trust security gateway and IoT projects.",
   "requestFramePermissions": [],
-  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
 }

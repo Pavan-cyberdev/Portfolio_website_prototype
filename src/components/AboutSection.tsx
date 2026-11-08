@@ -118,6 +118,67 @@ export const AboutSection: React.FC = () => {
 
         </div>
 
+        {/* Engineering Defense Pipeline & Philosophy Card (inspired by Rayhan Aditya Work Process) */}
+        <div className="pt-12 border-t border-white/[0.08] grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
+          
+          {/* Left: 5-Step Connected Node Track */}
+          <div className="lg:col-span-8 rounded-2xl bg-[#0b0f16] border border-white/[0.08] p-6 sm:p-8 space-y-6">
+            <div className="flex items-center justify-between border-b border-white/[0.06] pb-3">
+              <span className="text-xs font-mono uppercase tracking-widest text-slate-400">
+                DEFENSIVE ENGINEERING PROCESS
+              </span>
+              <span className="text-[10px] font-mono text-accent">5-PHASE ZERO-TRUST LIFECYCLE</span>
+            </div>
+
+            <div className="relative pl-6 sm:pl-8 space-y-6 before:absolute before:left-3 sm:before:left-4 before:top-3 before:bottom-3 before:w-[2px] before:bg-gradient-to-b before:from-accent before:via-white/20 before:to-accent/40">
+              {[
+                { step: '01', title: 'DISCOVER & THREAT RECON', desc: 'Analyzing unconstrained API surfaces, autonomous agent tool-call vectors, and memory safety vulnerabilities.' },
+                { step: '02', title: 'ZERO-TRUST POLICY SPECIFICATION', desc: 'Defining default-deny authorization rules, task-bound Mission Lock constraints, and cryptographic tool hashes.' },
+                { step: '03', title: 'RUNTIME GATEWAY INTERCEPTION', desc: 'Reverse-proxying calls via FastAPI and validating tool signatures with SHA-256 before forwarding to MCP servers.' },
+                { step: '04', title: 'PAYLOAD INSPECTION & AUDIT', desc: 'Sanitizing downstream LLM responses to catch prompt-injection triggers and logging to an immutable SQLite ledger.' },
+                { step: '05', title: 'HARDWARE & EMBEDDED EXTENSION', desc: 'Translating zero-trust logic to physical microcontrollers (ESP32/Arduino) with secure firmware and sensor bounds.' },
+              ].map((phase) => (
+                <div key={phase.step} className="relative group">
+                  {/* Node marker */}
+                  <div className="absolute -left-6 sm:-left-8 top-0.5 w-6 h-6 sm:w-7 sm:h-7 rounded-full bg-[#070b12] border border-white/20 group-hover:border-accent flex items-center justify-center text-[10px] font-mono font-bold text-slate-300 group-hover:text-accent transition-colors shadow-sm shadow-black">
+                    {phase.step}
+                  </div>
+                  <div className="space-y-1">
+                    <h4 className="text-xs font-mono font-bold text-white uppercase tracking-wider group-hover:text-accent transition-colors">
+                      {phase.title}
+                    </h4>
+                    <p className="text-xs text-slate-400 leading-relaxed font-sans">
+                      {phase.desc}
+                    </p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Right: Signature Philosophy Quote Card (Rayhan style) */}
+          <div className="lg:col-span-4 rounded-2xl bg-gradient-to-br from-[#121824] to-[#0a0e16] border border-accent/30 p-6 sm:p-8 flex flex-col justify-between relative overflow-hidden shadow-xl shadow-black/60 group">
+            <div className="absolute -right-6 -bottom-6 w-32 h-32 bg-accent-soft blur-2xl rounded-full pointer-events-none" />
+            
+            <div className="space-y-4">
+              <span className="text-4xl text-accent font-serif leading-none block select-none">&ldquo;</span>
+              <p className="font-display text-lg sm:text-xl text-white font-normal leading-snug">
+                Good security is not just how it looks, but understanding how systems break from the ground up.
+              </p>
+            </div>
+
+            <div className="pt-6 border-t border-white/10 space-y-2">
+              <div className="font-display italic text-lg text-accent font-medium">
+                Pavankumar S.
+              </div>
+              <div className="font-mono text-[10px] uppercase tracking-wider text-slate-500">
+                1st-Year B.Tech IoT &amp; Cybersecurity
+              </div>
+            </div>
+          </div>
+
+        </div>
+
       </div>
     </section>
   );

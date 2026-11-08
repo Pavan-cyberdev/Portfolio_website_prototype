@@ -101,8 +101,39 @@ export const Footer: React.FC = () => {
 
         </div>
 
-        <div className="pt-8 border-t border-white/[0.05] flex flex-col sm:flex-row items-center justify-between gap-2 text-[11px] text-slate-600">
-          <div>Built with React, TypeScript &amp; Tailwind CSS. Inspired by high-end editorial portfolios.</div>
+        {/* Geometric Cipher Strip (inspired by Alex portfolio video 00:18) */}
+        <div className="py-6 border-y border-white/[0.06] flex items-center justify-between text-slate-600 font-mono text-xs overflow-x-auto no-scrollbar gap-8 select-none">
+          <div className="flex items-center gap-6 tracking-widest text-[11px] shrink-0 text-slate-500">
+            <span className="text-accent font-bold">PAVANKUMAR S</span>
+            <span>//</span>
+            <span>ZERO-TRUST GATEWAYS</span>
+            <span>//</span>
+            <span>MCP PROTOCOLS</span>
+            <span>//</span>
+            <span>C++ DSA FOUNDATIONS</span>
+            <span>//</span>
+            <span>ESP32 &amp; ARDUINO</span>
+          </div>
+
+          <div className="flex items-center gap-4 text-accent text-sm shrink-0 font-sans">
+            <span className="opacity-80">✦</span>
+            <span className="opacity-40 font-mono text-xs">⬡</span>
+            <span className="opacity-90 font-mono text-xs">⬢</span>
+            <span className="opacity-40 font-mono text-xs">◈</span>
+            <span className="opacity-80">✦</span>
+            <span className="font-mono text-xs text-slate-400">&gt;_</span>
+            <span className="opacity-40 font-mono text-xs">◈</span>
+            <span className="opacity-90 font-mono text-xs">⬢</span>
+            <span className="opacity-40 font-mono text-xs">⬡</span>
+            <span className="opacity-80">✦</span>
+          </div>
+        </div>
+
+        <div className="flex flex-col sm:flex-row items-center justify-between gap-3 text-[11px] text-slate-500">
+          <div className="flex items-center gap-2">
+            <span className="w-1.5 h-1.5 rounded-full bg-accent animate-pulse" />
+            <span>Built with React, TypeScript &amp; Tailwind CSS. Zero-Trust &amp; IoT Lab.</span>
+          </div>
           <div>&copy; 2026 Pavankumar S. All rights reserved.</div>
         </div>
 

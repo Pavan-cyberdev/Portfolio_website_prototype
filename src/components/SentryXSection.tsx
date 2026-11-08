@@ -93,26 +93,66 @@ export const SentryXSection: React.FC = () => {
             </div>
           </div>
 
-          {/* Interactive Filter Group */}
-          <div className="flex flex-wrap items-center gap-2 pt-2">
+          {/* Interactive Project Directory Strip (inspired by Alex video 00:10 & Rayhan portfolio) */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
             {[
-              { id: 'all', label: 'All work', count: '03' },
-              { id: 'built', label: 'Built prototypes', count: '01' },
-              { id: 'hardware', label: 'IoT & Hardware', count: '02' },
-              { id: 'security', label: 'AI & Security', count: '01' },
-            ].map((tab) => (
-              <button
-                key={tab.id}
-                onClick={() => setFilter(tab.id as typeof filter)}
-                className={`px-4 py-2 text-xs font-mono tracking-wider uppercase rounded-full transition-all flex items-center gap-2 ${
-                  filter === tab.id
-                    ? 'bg-accent-soft text-accent border border-accent shadow-accent'
-                    : 'text-slate-400 hover:text-white bg-white/[0.02] border border-white/10 hover:border-white/20'
+              {
+                id: 'sentry-x',
+                num: '01',
+                title: 'Sentry X: Zero-Trust Gateway',
+                category: 'AI Agent Security · 24h Hackathon',
+                badge: 'Hackurity 2026',
+                targetFilter: 'built',
+                hasLive: true,
+              },
+              {
+                id: 'esp32-node',
+                num: '02',
+                title: 'ESP32 Telemetry Node',
+                category: 'IoT Hardware · WiFi/MQTT',
+                badge: 'Hardware Study',
+                targetFilter: 'hardware',
+                hasLive: false,
+              },
+              {
+                id: 'arduino-access',
+                num: '03',
+                title: 'Arduino Access Controller',
+                category: 'Embedded SPI · RFID Zero-Trust',
+                badge: 'Hardware Study',
+                targetFilter: 'hardware',
+                hasLive: false,
+              },
+            ].map((item) => (
+              <div
+                key={item.id}
+                onClick={() => setFilter(item.targetFilter as typeof filter)}
+                className={`p-4 rounded-xl border transition-all cursor-pointer group flex flex-col justify-between space-y-3 ${
+                  (item.id === 'sentry-x' && (filter === 'all' || filter === 'security' || filter === 'built')) ||
+                  (item.id !== 'sentry-x' && filter === 'hardware')
+                    ? 'bg-[#0e1420] border-accent/60 shadow-lg shadow-black/60'
+                    : 'bg-white/[0.02] border-white/10 hover:border-white/20'
                 }`}
               >
-                <span>{tab.label}</span>
-                <span className="text-[10px] text-slate-500">{tab.count}</span>
-              </button>
+                <div className="flex items-center justify-between text-xs font-mono">
+                  <span className="text-accent font-bold">{item.num}</span>
+                  <span className="text-[10px] uppercase tracking-wider text-slate-400 px-2 py-0.5 rounded bg-white/[0.04] border border-white/10">
+                    {item.badge}
+                  </span>
+                </div>
+                <div>
+                  <h4 className="text-sm font-semibold text-white group-hover:text-accent transition-colors font-mono">
+                    {item.title}
+                  </h4>
+                  <p className="text-[11px] text-slate-400 mt-0.5 font-sans">
+                    {item.category}
+                  </p>
+                </div>
+                <div className="pt-2 border-t border-white/5 flex items-center justify-between text-[10px] font-mono text-slate-500">
+                  <span>{item.hasLive ? 'VIEW CASE STUDY & LIVE DEMO' : 'VIEW HARDWARE SPEC'}</span>
+                  <span className="text-accent group-hover:translate-x-1 transition-transform">→</span>
+                </div>
+              </div>
             ))}
           </div>
         </div>
@@ -130,7 +170,7 @@ export const SentryXSection: React.FC = () => {
                   <span className="text-slate-400">HACKATHON PROTOTYPE</span>
                 </div>
                 <div className="text-xs font-mono text-slate-500">
-                  01 / BUILT IN 24 HOURS AT REVA UNIVERSITY
+                  01 / BUILT IN 24 HOURS AT REVA UNIVERSITY · TEAM BRO CODE
                 </div>
               </div>
 
@@ -161,6 +201,43 @@ export const SentryXSection: React.FC = () => {
                 <p className="text-sm sm:text-base text-slate-400 max-w-3xl leading-relaxed">
                   {project.tagline}. Sits inline between autonomous Gemini LLM agents and Model Context Protocol (MCP) servers, validating all actions against explicit default-deny policies.
                 </p>
+              </div>
+
+              {/* Architecture Dataflow Diagram (Delivering initial prompt architecture placeholder requirement) */}
+              <div className="p-5 sm:p-6 rounded-xl bg-black/50 border border-white/10 space-y-3 font-mono text-xs">
+                <div className="flex items-center justify-between text-slate-400 text-[10px] uppercase tracking-wider">
+                  <span className="flex items-center gap-2">
+                    <span className="w-2 h-2 rounded-full bg-accent" />
+                    <span>SYSTEM ARCHITECTURE &amp; INTERCEPTION PIPELINE</span>
+                  </span>
+                  <span>24-HOUR PROTOTYPE SPEC</span>
+                </div>
+
+                <div className="grid grid-cols-1 md:grid-cols-4 gap-3 pt-2">
+                  <div className="p-3.5 rounded-lg bg-white/[0.02] border border-white/10 text-center space-y-1">
+                    <div className="text-[10px] text-slate-500">INGRESS</div>
+                    <div className="text-white font-bold text-xs">Gemini AI Agent</div>
+                    <div className="text-[10px] text-slate-400">Autonomous Tool Calls</div>
+                  </div>
+
+                  <div className="p-3.5 rounded-lg bg-accent-soft border border-accent text-center space-y-1 relative">
+                    <div className="text-[10px] text-accent font-bold">INLINE PROXY</div>
+                    <div className="text-accent font-bold text-xs">Sentry X Gateway</div>
+                    <div className="text-[10px] text-slate-300">Default-Deny + Mission Lock</div>
+                  </div>
+
+                  <div className="p-3.5 rounded-lg bg-white/[0.02] border border-white/10 text-center space-y-1">
+                    <div className="text-[10px] text-slate-500">INTEGRITY &amp; LOG</div>
+                    <div className="text-white font-bold text-xs">SHA-256 + SQLite</div>
+                    <div className="text-[10px] text-slate-400">Immutable Audit Trail</div>
+                  </div>
+
+                  <div className="p-3.5 rounded-lg bg-white/[0.02] border border-white/10 text-center space-y-1">
+                    <div className="text-[10px] text-slate-500">EGRESS</div>
+                    <div className="text-white font-bold text-xs">MCP Tool Servers</div>
+                    <div className="text-[10px] text-slate-400">Sanitized Execution</div>
+                  </div>
+                </div>
               </div>
 
               {/* 4-Item Structured Breakdown */}
