@@ -1,0 +1,152 @@
+@import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  --font-display: 'Fraunces', Georgia, serif;
+  --font-mono: 'JetBrains Mono', monospace;
+  --color-canvas-dark: #07090e;
+  --color-surface-dark: #0f141c;
+  --color-surface-dark-hover: #151c27;
+}
+
+:root {
+  --bg-page: #07090e;
+  --bg-card: #0b0f16;
+  --bg-card-hover: #10151f;
+  --border-subtle: rgba(255, 255, 255, 0.08);
+  --text-main: #f1f5f9;
+  --text-sub: #94a3b8;
+  --text-dim: #64748b;
+
+  /* Default Palette: Cyber Teal */
+  --accent-primary: #5eead4;
+  --accent-primary-hover: #2dd4bf;
+  --accent-secondary: #a78bfa;
+  --accent-bg: rgba(94, 234, 212, 0.12);
+  --accent-border: rgba(94, 234, 212, 0.3);
+  --accent-glow: rgba(94, 234, 212, 0.2);
+  --btn-text: #07090e;
+}
+
+/* Palette 2: Crimson Iris (Amogh Rao Inspiration) */
+[data-palette="crimson"] {
+  --accent-primary: #ff3366;
+  --accent-primary-hover: #e11d48;
+  --accent-secondary: #fb923c;
+  --accent-bg: rgba(255, 51, 102, 0.12);
+  --accent-border: rgba(255, 51, 102, 0.35);
+  --accent-glow: rgba(255, 51, 102, 0.22);
+  --btn-text: #ffffff;
+}
+
+/* Palette 3: Amber Gold / Hardware Terminal */
+[data-palette="amber"] {
+  --accent-primary: #fbbf24;
+  --accent-primary-hover: #f59e0b;
+  --accent-secondary: #fb923c;
+  --accent-bg: rgba(251, 191, 36, 0.12);
+  --accent-border: rgba(251, 191, 36, 0.35);
+  --accent-glow: rgba(251, 191, 36, 0.22);
+  --btn-text: #07090e;
+}
+
+/* Palette 4: Cobalt Blue & Ice Cyan (Systems / Nordic) */
+[data-palette="cobalt"] {
+  --accent-primary: #38bdf8;
+  --accent-primary-hover: #0ea5e9;
+  --accent-secondary: #818cf8;
+  --accent-bg: rgba(56, 189, 248, 0.12);
+  --accent-border: rgba(56, 189, 248, 0.35);
+  --accent-glow: rgba(56, 189, 248, 0.22);
+  --btn-text: #07090e;
+}
+
+/* Palette 5: Matrix Zero-Trust Emerald */
+[data-palette="emerald"] {
+  --accent-primary: #10b981;
+  --accent-primary-hover: #059669;
+  --accent-secondary: #34d399;
+  --accent-bg: rgba(16, 185, 129, 0.12);
+  --accent-border: rgba(16, 185, 129, 0.35);
+  --accent-glow: rgba(16, 185, 129, 0.22);
+  --btn-text: #07090e;
+}
+
+html:not(.dark) {
+  --bg-page: #f8fafc;
+  --bg-card: #ffffff;
+  --bg-card-hover: #f1f5f9;
+  --border-subtle: rgba(0, 0, 0, 0.08);
+  --text-main: #0f172a;
+  --text-sub: #475569;
+  --text-dim: #64748b;
+}
+
+/* Dynamic Accent Utility Classes */
+.text-accent {
+  color: var(--accent-primary);
+}
+
+.text-accent-secondary {
+  color: var(--accent-secondary);
+}
+
+.bg-accent {
+  background-color: var(--accent-primary);
+  color: var(--btn-text);
+}
+
+.bg-accent:hover {
+  background-color: var(--accent-primary-hover);
+}
+
+.bg-accent-soft {
+  background-color: var(--accent-bg);
+}
+
+.border-accent {
+  border-color: var(--accent-border);
+}
+
+.border-accent-strong {
+  border-color: var(--accent-primary);
+}
+
+.shadow-accent {
+  box-shadow: 0 10px 25px -5px var(--accent-glow);
+}
+
+/* Subtle circuit/grid background pattern */
+.bg-grid-pattern {
+  background-size: 40px 40px;
+  background-image: 
+    linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+}
+
+.light .bg-grid-pattern {
+  background-image: 
+    linear-gradient(to right, rgba(0, 0, 0, 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(0, 0, 0, 0.04) 1px, transparent 1px);
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(148, 163, 184, 0.2);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(148, 163, 184, 0.4);
+}
+
+/* Tabular numbers for code and metrics */
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
+}
